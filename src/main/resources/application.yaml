@@ -1,0 +1,16 @@
+server:
+  port: 8001
+  servlet:
+    context-path: /spring-with-prometheus-grafana
+
+spring:
+  application:
+    name: spring-with-prometheus-grafana
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, metrics, prometheus
+  metrics:
+    tags:
+      application: ${spring.application.name}
