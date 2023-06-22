@@ -10,6 +10,6 @@ scrape_configs:
     metrics_path: '/spring-with-prometheus-grafana/actuator/prometheus'
     scrape_interval: 2s
     static_configs:
-      - targets: [ 'app:8001' ]
+      - targets: [ 'host.docker.internal:8001' ]
         labels:
           app: 'spring-with-prometheus-grafana'

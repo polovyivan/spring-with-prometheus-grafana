@@ -1,13 +1,6 @@
 version: "3.8"
 
 services:
-  app:
-    container_name: spring-with-prometheus-grafana
-    image: spring-with-prometheus-grafana-image:latest
-    ports:
-      - "8001:8001"
-    networks:
-      - prometheus-network
 
   grafana:
     container_name: grafana
@@ -34,6 +27,8 @@ services:
       - --log.level=debug
     ports:
       - "9090:9090"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     networks:
       - prometheus-network
 
